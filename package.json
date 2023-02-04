@@ -1,0 +1,20 @@
+{
+  "name": "botkobayashi",
+  "version": "1.0.0",
+  "description": "general bot",
+  "main": "src/bot.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "Falaqin",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "^1.5.0",
+    "axios": "^1.2.5",
+    "chalk": "^4.1.2",
+    "discord-api-types": "^0.37.30",
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}
