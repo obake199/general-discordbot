@@ -7,7 +7,7 @@ module.exports = {
             let messageContent = message.content;
             messageContent = messageContent.substring(1);
 
-            axios.post(process.env.app_url + 'api/command/fetch', {
+            axios.post(process.env.APP_URL + 'api/command/fetch', {
                 name: messageContent
             }).then(response => {
                 message.channel.send(`${response.data}`);
