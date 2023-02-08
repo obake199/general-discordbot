@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class MoneyController extends Controller
 {
-    public function index(Request $request) {
-        return 'This is returned from backend api';
+    public function addMoney(Request $request): string
+    {
+        return 'string';
     }
 }

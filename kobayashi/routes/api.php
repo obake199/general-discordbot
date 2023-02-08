@@ -22,5 +22,8 @@ Route::post('/command/fetch', [CommandController::class, 'fetchCommand']);
 Route::post('/command/remove', [CommandController::class, 'removeCommand']);
 Route::post('/command/list', [CommandController::class, 'listCommand']);
 
+// Money routes
+// Route::post('/money/add', [MoneyController::class, 'addMoney']);
+
 // TEST ROUTES
-Route::post('/route', [MoneyController::class, 'index']);
+Route::post('/test/api', [\App\Http\Controllers\TestController::class, 'test']);

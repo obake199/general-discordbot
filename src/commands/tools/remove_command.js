@@ -27,7 +27,6 @@ module.exports = {
                 name: interaction.options.getString('name')
             })
                 .then(response => {
-                    console.log(response);
                     replyMessage(response.data, interaction);
                 })
         }

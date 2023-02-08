@@ -15,23 +15,17 @@ module.exports = (client) => {
                 const { commands, commandArray } = client;
                 for (const file of commandFiles) {
                     const command = require(`../../commands/${folder}/${file}`);
-                    commands.set(command.data.name, command);
+                    await commands.set(command.data.name, command);
                     commandArray.push(command.data.toJSON());
-                    
-                    console.log(`command: ${command.data.name} is set`);
                 }
         }
         
         // connect to discord rest api
         const { CLIENT_ID, GUILD_ID } = process.env;
 
-        const rest = new REST({
-            version: "9"
-        })
-            .setToken(process.env.TOKEN)
+        const rest = new REST({ version: "9" }).setToken(process.env.TOKEN)
 
         try {
-            console.log('Started refreshing application slash commands.');
             await rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), {
                 body: client.commandArray
             });

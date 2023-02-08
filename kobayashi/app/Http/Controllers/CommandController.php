@@ -8,7 +8,8 @@ use Exception;
 
 class CommandController extends Controller
 {
-    public function registerCommand(Request $request) {
+    public function registerCommand(Request $request): string
+    {
         // Check if command exists
         $command = CustomCommand::where('command', $request->name)->first();
         if (!$command) {
@@ -28,23 +29,26 @@ class CommandController extends Controller
         return "{$request->name} command created successfully";
     }
 
-    public function fetchCommand(Request $request) {
+    public function fetchCommand(Request $request): string
+    {
         $command = CustomCommand::where('command', $request->name)->first();
         return $command->value ?? 'Command not found';
     }
 
-    public function removeCommand(Request $request) {
+    public function removeCommand(Request $request): string
+    {
         CustomCommand::where('command', $request->name)->delete();
         return "{$request->name} command deleted successfully";
     }
 
-    public function listCommand(Request $request) {
+    public function listCommand(): string
+    {
         $commands = array();
         $fetch_commands = CustomCommand::select('command')->get()->toArray();
 
         foreach ($fetch_commands as $command)
             $commands[] = $command['command'];
-        
-        return implode(', ', $commands);
+
+        return $commands ? implode(', ', $commands) : 'No commands available.';
     }
 }
