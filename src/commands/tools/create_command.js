@@ -34,7 +34,6 @@ module.exports = {
                 value: interaction.options.getString('value')
             })
                 .then(response => {
-                    console.log(response);
                     replyMessage(response.data, interaction);
                 })
         }
