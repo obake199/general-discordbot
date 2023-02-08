@@ -25,12 +25,16 @@ module.exports = {
 
         // image prompt
         async function image(prompt) {
-            const response = await openai.createImage({
-                prompt,
-                n: 1,
-                size: "1024x1024"
-            });
-            return response.data.data[0].url ?? 'dead.';
+            try {
+                const response = await openai.createImage({
+                    prompt,
+                    n: 1,
+                    size: "1024x1024"
+                });
+                return response.data.data[0].url ?? 'dead.';
+            } catch (e) {
+                return 'Error lol pls do not put cock.';
+            }
         }
 
         // message here
