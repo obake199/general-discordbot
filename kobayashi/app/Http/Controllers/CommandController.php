@@ -41,7 +41,7 @@ class CommandController extends Controller
         return "{$request->name} command deleted successfully";
     }
 
-    public function listCommand(): string
+    public function listCommand(): array
     {
         $commands = array();
         $fetch_commands = CustomCommand::select('command')->get()->toArray();
@@ -49,6 +49,6 @@ class CommandController extends Controller
         foreach ($fetch_commands as $command)
             $commands[] = $command['command'];
 
-        return $commands ? implode(', ', $commands) : 'No commands available.';
+        return $commands ?? array('No commands available.');
     }
 }

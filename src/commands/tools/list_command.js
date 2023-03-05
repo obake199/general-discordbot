@@ -13,7 +13,7 @@ module.exports = {
 
             const replyMessage = (reply, interaction) => {  
                 interaction.editReply({
-                    content: reply ?? '404 error'
+                    content: reply.join(', ')
                 });
             }
             
